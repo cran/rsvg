@@ -1,0 +1,13 @@
+1c42fe4bb8246249fb0859ec42205649 *DESCRIPTION
+91443a13b3d89ea22bfa1222461b0111 *LICENSE
+0d1a77a7480d09044f2ee6ec7b3501e1 *NAMESPACE
+42643e4695e8992408a9c2858284e687 *R/rsvg.R
+a810b0de5bcf82ee5f0038c8c08d2aab *configure
+d41d8cd98f00b204e9800998ecf8427e *configure.win
+27771bef3883b3933324eff4e826cd83 *man/rsvg.Rd
+111e1efb50ff675feb507ea42a24b300 *src/Makevars.in
+f094e9d7f8bdbd54be6152edc7432e6c *src/Makevars.win
+d0a796d0e564ef6613c4f178f25f959e *src/init.c
+a32b42f1f41b27e720b72d4a86843a64 *src/rsvg.c
+83aab7f227fbd45ce2689781617256b7 *tools/glib.rb
+303a2b60159d8e8574a247813d0ba2eb *tools/winlibs.R
