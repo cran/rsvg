@@ -2,17 +2,37 @@
 % Please edit documentation in R/rsvg.R
 \name{rsvg}
 \alias{rsvg}
+\alias{rsvg_pdf}
+\alias{rsvg_png}
+\alias{rsvg_ps}
+\alias{rsvg_raw}
+\alias{rsvg_svg}
+\alias{rsvg_webp}
 \title{Render SVG into Bitmap}
 \usage{
 rsvg(svg, width = NULL, height = NULL)
+
+rsvg_raw(svg, width = NULL, height = NULL)
+
+rsvg_webp(svg, file = NULL, width = NULL, height = NULL)
+
+rsvg_png(svg, file = NULL, width = NULL, height = NULL)
+
+rsvg_pdf(svg, file = NULL, width = NULL, height = NULL)
+
+rsvg_svg(svg, file = NULL, width = NULL, height = NULL)
+
+rsvg_ps(svg, file = NULL, width = NULL, height = NULL)
 }
 \arguments{
-\item{svg}{path to svg file or raw vector with svg data. Use \link{charToRaw} to convert
-strings into raw vectors.}
+\item{svg}{path/url to svg file or raw vector with svg data. Use \link{charToRaw} to convert
+an SVG string into raw data.}
 
 \item{width}{output width in pixels or \code{NULL} for default.}
 
 \item{height}{output height in pixels or \code{NULL} for default}
+
+\item{file}{path to output file or \code{NULL} to return content as raw vector}
 }
 \description{
 Render svg image into a high quality bitmap. When both \code{width} and \code{height}
@@ -27,10 +47,17 @@ svglite::svglite(tmp, width = 10, height = 7)
 ggplot2::qplot(mpg, wt, data = mtcars, colour = factor(cyl))
 dev.off()
 
-# render it into 720p HD
-bitmap <- rsvg(tmp, height = 720)
-png::writePNG(bitmap, "test.png", dpi = 144)
-jpeg::writeJPEG(bitmap, "test.jpg", quality = 1)
-webp::write_webp(bitmap, "test.webp", quality = 100)
+# render it into a bitmap array
+bitmap <- rsvg(tmp, height = 1440)
+dim(bitmap) # h*w*c
+png::writePNG(bitmap, "bitmap.png", dpi = 144)
+jpeg::writeJPEG(bitmap, "bitmap.jpg", quality = 1)
+webp::write_webp(bitmap, "bitmap.webp", quality = 100)
+
+# render straight to output format
+rsvg_pdf(tmp, "out.pdf")
+rsvg_png(tmp, "out.png")
+rsvg_svg(tmp, "out.svg")
+rsvg_ps(tmp, "out.ps")
 }
 

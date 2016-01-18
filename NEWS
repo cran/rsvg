@@ -1,0 +1,7 @@
+0.3
+  - Add output formats rsvg_png() rsvg_pdf() rsvg_ps() rsvg_svg()
+  - Fix for rounding issue in proportional image scaling
+  - Add support for url in rsvg()
+
+0.2
+  - Initial CRAN release with Windows support
