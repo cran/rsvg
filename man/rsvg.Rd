@@ -2,12 +2,12 @@
 % Please edit documentation in R/rsvg.R
 \name{rsvg}
 \alias{rsvg}
-\alias{rsvg_raw}
-\alias{rsvg_webp}
-\alias{rsvg_png}
 \alias{rsvg_pdf}
-\alias{rsvg_svg}
+\alias{rsvg_png}
 \alias{rsvg_ps}
+\alias{rsvg_raw}
+\alias{rsvg_svg}
+\alias{rsvg_webp}
 \title{Render SVG into Bitmap}
 \usage{
 rsvg(svg, width = NULL, height = NULL)
@@ -63,3 +63,4 @@ rsvg_png(tmp, "out.png")
 rsvg_svg(tmp, "out.svg")
 rsvg_ps(tmp, "out.ps")
 }
+
