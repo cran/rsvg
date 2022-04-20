@@ -11,6 +11,7 @@
 #include <cairo-ps.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 typedef struct {
   unsigned char *buf;
@@ -38,8 +39,9 @@ static void setup_render_handle(RsvgHandle *svg, cairo_t *cr){
 #if LIBRSVG_CHECK_VERSION(2,52,0)
   GError *err = NULL;
   RsvgRectangle viewport = {0.0};
-  //viewport.width = width;
-  //viewport.height = height;
+  cairo_surface_t *surface = cairo_get_target(cr);
+  viewport.width = cairo_image_surface_get_width(surface);
+  viewport.height = cairo_image_surface_get_height(surface);
   rsvg_handle_render_document(svg, cr, &viewport, &err);
   if(err != NULL)
     Rf_error("Failure in rsvg_handle_render_document: %s", err->message);
@@ -88,17 +90,16 @@ static SEXP write_native_raster(RsvgHandle *svg, int width, int height, double s
 
   // Get a pointer to the raw bytes from cairo in CAIRO_FORMAT_ARGB32
   unsigned char *bp  = cairo_image_surface_get_data(canvas);
-  int *nrp = INTEGER(image);
+  unsigned char *nrp = (unsigned char *)INTEGER(image);
 
   // Note: this is not properly handling stride and is just assuming
   // that the width of the canvas is width*channels
-  // Twiddle the colour channels from RGBA to ARGB
-  for (int i=0; i < height * width; i++) {
-    nrp[i] =
-      (bp[(i << 2) + 0]) << 16 |   // RGBA -> ARGB
-      (bp[(i << 2) + 1]) <<  8 |   //
-      (bp[(i << 2) + 2]) <<  0 |   //
-      (bp[(i << 2) + 3]) << 24 ;   //
+  // Twiddle the colour channels
+  for (int i=0; i < height * width * 4; i+=4) {
+    nrp[i + 2] = bp[i + 0];
+    nrp[i + 1] = bp[i + 1];
+    nrp[i + 0] = bp[i + 2];
+    nrp[i + 3] = bp[i + 3];
   }
 
   // Free and return
