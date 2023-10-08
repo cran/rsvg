@@ -16,7 +16,7 @@ str <- charToRaw('<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
 </svg>')
 rsvg_png(str, file = 'ex1.png')
 
-## ---- echo=FALSE, fig.cap="Rendering of SVG with embedded CSS"----------------
+## ----echo=FALSE, fig.cap="Rendering of SVG with embedded CSS"-----------------
 knitr::include_graphics("ex1.png")
 
 ## -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@ svg <- charToRaw('<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
 # Render without style:
 rsvg_png(svg, file = 'ex2.png')
 
-## ---- echo=FALSE, fig.cap="Rendering of SVG without CSS"----------------------
+## ----echo=FALSE, fig.cap="Rendering of SVG without CSS"-----------------------
 knitr::include_graphics("ex2.png")
 
 ## -----------------------------------------------------------------------------
@@ -39,7 +39,7 @@ css <- charToRaw('circle {
 # Render without style:
 rsvg_png(svg, css = css, file = 'ex3.png')
 
-## ---- echo=FALSE, fig.cap="Rendering of SVG with external CSS"----------------
+## ----echo=FALSE, fig.cap="Rendering of SVG with external CSS"-----------------
 knitr::include_graphics("ex3.png")
 
 ## -----------------------------------------------------------------------------
