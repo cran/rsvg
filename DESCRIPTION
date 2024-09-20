@@ -2,9 +2,9 @@ Type: Package
 Package: rsvg
 Title: Render SVG Images into PDF, PNG, (Encapsulated) PostScript, or
         Bitmap Arrays
-Version: 2.6.0
+Version: 2.6.1
 Authors@R: c(
-    person("Jeroen", "Ooms", , "jeroen@berkeley.edu", role = c("aut", "cre"),
+    person("Jeroen", "Ooms", , "jeroenooms@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4035-0289")),
     person("Salim", "Brüggemann", , "salim-b@pm.me", role = c("ctb"),
            comment = c(ORCID = "0000-0002-5329-5987")))
@@ -24,9 +24,9 @@ RoxygenNote: 7.1.2
 SystemRequirements: librsvg2
 Config/testthat/edition: 3
 NeedsCompilation: yes
-Packaged: 2023-10-05 21:50:38 UTC; jeroen
+Packaged: 2024-09-19 17:11:15 UTC; jeroen
 Author: Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>),
   Salim Brüggemann [ctb] (<https://orcid.org/0000-0002-5329-5987>)
-Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
+Maintainer: Jeroen Ooms <jeroenooms@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-10-08 19:10:02 UTC
+Date/Publication: 2024-09-20 09:10:02 UTC
